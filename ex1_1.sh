@@ -9,9 +9,7 @@ for file in $K/*; do
     if [ ! -s "$file" ]; then
         ((countFiles++));
     fi;
-done;
 
-for file in $K/*; do
     if [ -d "$file" ]; then
         ((countDictionaries++));
     fi;
