@@ -1,14 +1,21 @@
 #!/bin/bash
-
-K=$1
+K=$1;
 if [ ! -d "$K" ]; then
-    echo "Directory doesn't exist";
-fi
-
-count=0
+    echo "Dictionary doesn't exist";
+fi;
+countFiles=0;
+countDictionaries=0;
 for file in $K/*; do
-    if [ -s "$file" ]; then
-        ((count++))
-    fi
+    if [ ! -s "$file" ]; then
+        ((countFiles++));
+    fi;
 done;
-echo $count;
+
+for file in $K/*; do
+    if [ -d "$file" ]; then
+        ((countDictionaries++));
+    fi;
+done;
+
+echo "Files $countFiles";
+echo "Folders $countDictionaries";
